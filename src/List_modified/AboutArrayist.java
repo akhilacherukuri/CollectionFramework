@@ -1,8 +1,10 @@
 package list;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Spliterator;
 
 import javax.sound.sampled.Line;
 
@@ -27,6 +29,23 @@ public class AboutArrayist {
 		System.out.println(obj.size());
 		ArrayList obj1 = new ArrayList();
 		obj1.add("abc");
+		obj1.add("lakshmi");
+		obj1.add("akhi");
+		obj1.add("navya");
+		// The contains() method is used to determines whether an element exists in an
+		// ArrayList object.
+
+//returns true if this list contains the specified element
+		System.out.println("contains : " + obj1.contains("navya"));
+		// the index of the first occurrence of the specified element in this list, or
+		// -1 if this list does not contain the element
+		System.out.println("indexOf : " + obj1.indexOf("abc"));// 0
+		System.out.println(obj1.indexOf("nav"));// -1
+//	    The lastIndexOf() method is used to get the index of the last occurrence of an element in an ArrayList object.
+		System.out.println("lastIndexOf : " + obj1.lastIndexOf("navya"));
+
+		Collections.sort(obj1);
+		System.out.println("sort : " + obj1);
 
 //addAll(): the addAll() is a method of java collections class which adds all of the specified elements to the specified collection
 		obj1.addAll(obj);
@@ -52,12 +71,41 @@ public class AboutArrayist {
 		while (iterator.hasNext()) {
 			System.out.println(iterator.next());
 		}
+		// returns a list iterator over the elements in this list
+		System.out.println("listiterator");
+		Iterator<Employee> iterator1 = obj1.listIterator();
+		while (iterator1.hasNext()) {
+			System.out.println(iterator1.next());
+		}
+		// returns a list iterator over the elements in this list
+		// starting at the specified position in the list
+		System.out.println("listiterator index : ");
+		Iterator<Employee> iterator2 = obj1.listIterator(1);
+		while (iterator2.hasNext()) {
+			System.out.println(iterator2.next());
+		}
+		System.out.println("spliterator : ");
+		Spliterator<Employee> str = obj1.spliterator();
+		for (Object o : obj1) {
+			System.out.println(o);
+		}
+
+		System.out.println("\nsublist : ");
+
+		// returns the view of portion of this list between the specified from index
+		// inclusive to toindex exclusive
+		System.out.println(obj1.subList(0, 4));
+		Object[] a = obj1.toArray();
+		System.out.println("to array");
+		for (Object o : a) {
+			System.out.println(o);
+		}
+
 		// isEmpty() method returns the true if the list is empty otherwise false
 		System.out.println(obj1.isEmpty());
 		// clear() method is used to remove all of the elements from this list
 		obj1.clear();
-		System.out.println("After using clear() : "
-				+ "");
+		System.out.println("After using clear() : " + "");
 
 		System.out.println(obj1.isEmpty());
 
